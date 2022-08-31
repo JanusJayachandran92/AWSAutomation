@@ -3,8 +3,8 @@
 # Get the region list
 export REGIONS=$(aws ec2 describe-regions | jq -r ".Regions[].RegionName")
 
-read -p "Do you really want to delete the default VPC [Y/N]? " -n 1 -r
-echo    # (optional) move to a new line
+read -p "Do you want to delete the default VPC from all the AWS regions [Y/N]? "
+
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     for region in $REGIONS ; do
